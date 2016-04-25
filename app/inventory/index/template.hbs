@@ -1,0 +1,28 @@
+<div class="mdl-grid">
+  <h2>Inventory Store 2256</h2>
+</div>
+
+<div class="mdl-grid">
+  <table class="inventory-list mdl-cell mdl-cell--12-col mdl-data-table mdl-shadow--2dp">
+    <tbody>
+      {{#each model as |car|}}
+        <tr class="inventory-list-item">
+          <td class="mdl-data-table__cell--non-numeric">
+            <span class="inventory-list-item__description">
+              {{car.year}} {{car.manufacturer}} {{car.modelName}}
+            </span> -
+            <span class="inventory-list-item__available
+              {{if car.currentlyAvailable "inventory-list-item__available--available" "inventory-list-item__available--none"}}">
+              {{car.currentlyAvailable}} Available
+            </span>
+          </td>
+          <td>
+            {{#link-to 'inventory.details' car class="inventory-list-item__detail-link"}}
+              Details
+            {{/link-to}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

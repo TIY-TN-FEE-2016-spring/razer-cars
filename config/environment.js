@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: '<%= name %>',
+    apiHost: 'http://localhost:3000',
+    modulePrefix: 'razer-cars',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -11,6 +12,12 @@ module.exports = function(environment) {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       }
+    },
+    'ember-simple-auth': {
+      routeAfterAuthentication: 'inventory',
+    },
+    sassOptions: {
+      includePaths: ['bower_components/material-design-lite/src']
     },
 
     APP: {

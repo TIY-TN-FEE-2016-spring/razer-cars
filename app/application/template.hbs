@@ -1,1 +1,18 @@
-{{outlet}}
+{{#mdl-nav title="Razer Cars" scrollHeader=true}}
+  {{#with-service "session" as |session|}}
+    {{!-- Example Nav Item --}}
+    {{#if session.isAuthenticated}}
+      {{mdl-nav-item name="Inventory" route="inventory"}}
+      {{mdl-nav-item name="Car Types" route="car-type"}}
+      {{mdl-nav-item name="Logout" route="logout"}}
+    {{else}}
+      {{mdl-nav-item name="Login" route="login"}}
+    {{/if}}
+
+    {{outlet}}
+
+    {{#if session.isAuthenticated}}
+      {{stats-footer}}
+    {{/if}}
+  {{/with-service}}
+{{/mdl-nav}}
